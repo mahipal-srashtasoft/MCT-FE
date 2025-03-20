@@ -10,7 +10,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import logo from "../assets/Images/Logo.png";
+import logo from "/public/Images/Logo.png";
 
 export default function Footer() {
   return (

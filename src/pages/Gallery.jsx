@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { GalleryData } from "../components/GalleryData";
+import { GalleryData } from "./GalleryData";
+
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightbox, setLightbox] = useState(null);
   const [visibleImages, setVisibleImages] = useState(6); // Initially show 6 images
 
-  const categories = ["All", "Education", "Healthcare", "Water", "Environment", "Women Empowerment", "Livelihood", "Other"];
+  const categories = [
+    "All",
+    "Education",
+    "Healthcare",
+    "Water",
+    "Environment",
+    "Women Empowerment",
+    "Livelihood",
+    "Other",
+  ];
 
   // Filter images based on category
   const filteredImages =
@@ -33,9 +43,12 @@ export default function Gallery() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Our Impact in Pictures</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            Our Impact in Pictures
+          </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            A glimpse of our efforts across Gujarat in various fields like education, healthcare, and empowerment.
+            A glimpse of our efforts across Gujarat in various fields like
+            education, healthcare, and empowerment.
           </p>
         </div>
       </div>
@@ -46,7 +59,9 @@ export default function Gallery() {
           <button
             key={category}
             className={`px-4 py-2 rounded-full font-semibold transition ${
-              selectedCategory === category ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              selectedCategory === category
+                ? "bg-orange-500 text-white"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
             onClick={() => {
               setSelectedCategory(category);
@@ -67,8 +82,14 @@ export default function Gallery() {
             className="overflow-hidden rounded-lg shadow-lg cursor-pointer relative hoverDiv"
             onClick={() => setLightbox(image.url)}
           >
-            <img src={image.url} alt={image.name} className="w-full h-64 object-cover" />
-            <div className="w-full DetailsSec flex items-center gap-3">{image.icon} {image.name || "Other"}</div>
+            <img
+              src={image.url}
+              alt={image.name}
+              className="w-full h-64 object-cover"
+            />
+            <div className="w-full DetailsSec flex items-center gap-3">
+              {image.icon} {image.name || "Other"}
+            </div>
           </motion.div>
         ))}
       </div>
@@ -87,8 +108,15 @@ export default function Gallery() {
 
       {/* Lightbox */}
       {lightbox && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={() => setLightbox(null)}>
-          <img src={lightbox} alt="Preview" className="max-w-4xl max-h-[90vh] rounded-lg" />
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          onClick={() => setLightbox(null)}
+        >
+          <img
+            src={lightbox}
+            alt="Preview"
+            className="max-w-4xl max-h-[90vh] rounded-lg"
+          />
         </div>
       )}
     </div>

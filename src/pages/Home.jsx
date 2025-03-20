@@ -13,8 +13,9 @@ import {
   Book,
   User,
 } from "lucide-react";
-import CleanWaterInitiative from "../assets/Images/Clean Water Initiative.jpg";
-import HealthcareAccess from "../assets/Images/healthcare-3.jpg";
+import CleanWaterInitiative from "/public/Images/Clean Water Initiative.jpg";
+import HealthcareAccess from "/public/Images/healthcare-3.jpg";
+import Education from "/public/Images/Education.jpg";
 import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react"; // Correct import
 
@@ -24,7 +25,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import HeroSlider from "../components/HeroSlider";
-import GallerySlider from "../components/GallerySlider";
+import GallerySlider from "./GallerySlider";
 
 export default function Home() {
   const campaigns = [
@@ -33,8 +34,7 @@ export default function Home() {
       description: "Help provide quality education to underprivileged children",
       raised: 25000,
       goal: 50000,
-      image:
-        "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800",
+      image: Education,
     },
     {
       title: "Clean Water Initiative",
@@ -112,6 +112,7 @@ export default function Home() {
 
       {/* Stats Section */}
       <div className="py-16 bg-white">
+        <img src="../assets/Images/Library.jpg" alt="" />
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
@@ -159,21 +160,21 @@ export default function Home() {
                   <p className="text-gray-600 mb-4">{campaign.description}</p>
                   <div className="mb-4">
                     <div className="flex justify-between text-sm mb-1">
-                      <span>Raised: ${campaign.raised.toLocaleString()}</span>
-                      <span>Goal: ${campaign.goal.toLocaleString()}</span>
+                      <span>Raised: ₹{campaign.raised.toLocaleString()}</span>
+                      <span>Goal: ₹{campaign.goal.toLocaleString()}</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
                         className="bg-orange-500 h-2 rounded-full"
                         style={{
-                          width: `${(campaign.raised / campaign.goal) * 100}%`,
+                          width: `₹{(campaign.raised / campaign.goal) * 100}%`,
                         }}
                       />
                     </div>
                   </div>
-                  <button className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
+                  <NavLink to={"/donate"} className="w-full inline-block text-center bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
                     Donate Now
-                  </button>
+                  </NavLink>
                 </div>
               </div>
             ))}

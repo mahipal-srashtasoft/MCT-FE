@@ -4,11 +4,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
-import { GalleryData } from "./galleryData";
+import { GalleryData } from "./GalleryData";
+
 
 const GallerySlider = () => {
   const navigate = useNavigate();
   const sliderData = GalleryData.slice(0, 10); // First 10 items only
+
+  console.log(sliderData)
 
   return (
     <div className="max-w-6xl mx-auto px-4">
