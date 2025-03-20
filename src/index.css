@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: "Winky Sans" , "sans-serif";
+}
+p{
+    font-family: "Montserrat Alternates" , "sans-serif" !important;
+}
+.hoverDiv{
+    transition: all ease-in-out 0.3s !important;
+}
+.DetailsSec{
+    background-color: rgba(255, 68, 0, 0.799);
+    color: white;
+    bottom: -70px;
+    padding: 20px;
+    position: absolute;
+    transition: all ease-in-out 0.3s !important;
+    
+}
+.hoverDiv:hover .DetailsSec{
+    bottom: 0 !important;
+}
