@@ -110,26 +110,7 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSlider />
 
-      {/* Stats Section */}
-      <div className="py-16 bg-white">
-        <img src="../assets/Images/Library.jpg" alt="" />
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-6 shadow-orange-500 shadow-sm rounded-lg"
-              >
-                <div className="flex justify-center mb-4">{stat.icon}</div>
-                <div className="text-4xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </div>
-                <p className="text-gray-600">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      
 
       {/* GallerySlider */}
       <div className="py-6 bg-slate-200">
@@ -176,6 +157,27 @@ export default function Home() {
                     Donate Now
                   </NavLink>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="py-16 bg-white">
+        <img src="../assets/Images/Library.jpg" alt="" />
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-6 shadow-orange-500 shadow-sm rounded-lg"
+              >
+                <div className="flex justify-center mb-4">{stat.icon}</div>
+                <div className="text-4xl font-bold text-gray-900 mb-2">
+                  {stat.value}
+                </div>
+                <p className="text-gray-600">{stat.label}</p>
               </div>
             ))}
           </div>
