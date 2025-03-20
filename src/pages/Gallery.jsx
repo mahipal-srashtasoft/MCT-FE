@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { GalleryData } from "./GalleryData";
 
-
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightbox, setLightbox] = useState(null);
@@ -54,23 +53,44 @@ export default function Gallery() {
       </div>
 
       {/* Category Filters */}
-      <div className="flex flex-wrap justify-center gap-4 my-8 px-4">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`px-4 py-2 rounded-full font-semibold transition ${
-              selectedCategory === category
-                ? "bg-orange-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-            onClick={() => {
-              setSelectedCategory(category);
-              setVisibleImages(6); // Reset visible images when changing category
+      <div className="my-8 px-4">
+        {/* Mobile Dropdown */}
+        <div className="md:hidden">
+          <select
+            className="w-full p-3 border rounded-lg text-gray-700"
+            value={selectedCategory}
+            onChange={(e) => {
+              setSelectedCategory(e.target.value);
+              setVisibleImages(6);
             }}
           >
-            {category}
-          </button>
-        ))}
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex flex-wrap justify-center gap-4">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`px-4 py-2 rounded-full font-semibold transition ${
+                selectedCategory === category
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+              onClick={() => {
+                setSelectedCategory(category);
+                setVisibleImages(6);
+              }}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Gallery Grid */}

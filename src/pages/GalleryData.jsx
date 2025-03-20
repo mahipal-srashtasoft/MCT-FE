@@ -153,7 +153,7 @@ import {
       icon: <Globe className="w-6 h-6 text-white" />,
     },
     {
-      url: "/Images/drug de-addiction awareness camp.jpg",
+      url: "Images/Drug de-addiction awareness camp.jpg",
       category: "Other",
       name: "drug de-addiction awareness camp",
       icon: <Globe className="w-6 h-6 text-white" />,
