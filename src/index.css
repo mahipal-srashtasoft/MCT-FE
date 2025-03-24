@@ -24,3 +24,56 @@ p{
 .hoverDiv:hover .DetailsSec{
     bottom: 0 !important;
 }
+.motionText{
+    font-size: 4rem;
+    font-weight: 600;
+    color: orange;
+    text-align: center;
+    padding: 20px 0px;
+    /* text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.799); */
+    letter-spacing: 4px;
+    font-family: "Londrina Outline", "sans-serif" !important;
+    filter: none !important;
+}
+.bgImg{
+    background-image: url("/Images/Hero.jpg");
+    box-shadow: 2850px -2510px 81px rgba(0, 0, 0, 0.7) inset ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    background-attachment: fixed;
+}
+input , textarea , select, option , label, ::placeholder{
+    background-color: transparent !important;
+    color: orange !important;
+}
+
+
+/* =-=-=-=-=-==-=-Scrolbar start=-=-=-=-==-=-=-=- */
+/* WebKit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: darkorange;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: orange;
+}
+
+/* Firefox (Apply to specific elements) */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: orange #f1f1f1; /* thumb color | track color */
+}
+
+
+/* =-=-=-=-=-==-=-Scrolbar end =-=-=-=-==-=-=-=- */

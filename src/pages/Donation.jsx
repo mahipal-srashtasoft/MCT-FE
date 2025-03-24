@@ -4,9 +4,12 @@
 import React, { useState } from "react";
 import { Heart, CheckCircle, X } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
+import DonationPopup from "../components/DonationPopup";
 
 
 export default function DonationPage() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   const [amount, setAmount] = useState("");
   const [showQR, setShowQR] = useState(false);
   const upiId = "9099792454@jio"; // Replace with actual UPI ID
@@ -43,6 +46,7 @@ export default function DonationPage() {
             >
               ₹{amt}
             </button>
+            
           ))}
         </div>
 
@@ -84,6 +88,21 @@ export default function DonationPage() {
           </div>
         </div>
       )}
+
+{/* <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold mb-4">Make a Donation</h1>
+      <p className="text-gray-700 mb-6 text-center max-w-lg">
+        Your donation helps us continue our work. Please choose your preferred
+        payment method and contribute to our cause.
+      </p>
+      <button
+        onClick={() => setIsPopupOpen(true)}
+        className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md"
+      >
+        Donate Now
+      </button>
+      <DonationPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+    </div> */}
 
       {/* Why Donate? Section */}
       <div className="bg-gray-200 py-16 text-center">

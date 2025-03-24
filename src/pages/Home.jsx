@@ -26,6 +26,8 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import HeroSlider from "../components/HeroSlider";
 import GallerySlider from "./GallerySlider";
+import MarqueeText from "../components/MarqueeText";
+import CountUpNumber from "../components/CountUpNumber";
 
 export default function Home() {
   const campaigns = [
@@ -55,52 +57,52 @@ export default function Home() {
   const stats = [
     {
       icon: <Users className="w-8 h-8 text-orange-500" />,
-      value: "10K+",
+      value: 10000,
       label: "Communities Helped",
     },
     {
       icon: <Heart className="w-8 h-8 text-orange-500" />,
-      value: "500K+",
+      value: 500000,
       label: "Meals Served",
     },
     {
       icon: <Book className="w-8 h-8 text-orange-500" />,
-      value: "5K+",
+      value: 5000,
       label: "Children Educated",
     },
     {
       icon: <TreeDeciduous className="w-8 h-8 text-orange-500" />,
-      value: "20K+",
+      value: 20000,
       label: "Trees Planted",
     },
     {
       icon: <HomeIcon className="w-8 h-8 text-orange-500" />,
-      value: "3K+",
+      value: 3000,
       label: "Families Supported",
     },
     {
       icon: <Activity className="w-8 h-8 text-orange-500" />,
-      value: "150+",
+      value: 150,
       label: "Medical Camps Organized",
     },
     {
       icon: <Users className="w-8 h-8 text-orange-500" />,
-      value: "2K+",
+      value: 2000,
       label: "Volunteers Engaged",
     },
     {
       icon: <PawPrint className="w-8 h-8 text-orange-500" />,
-      value: "1.5K+",
+      value: 1500,
       label: "Animals Rescued",
     },
     {
       icon: <User className="w-8 h-8 text-orange-500" />,
-      value: "8K+",
+      value: 8000,
       label: "Women Empowered",
     },
     {
       icon: <ShieldAlert className="w-8 h-8 text-orange-500" />,
-      value: "50+",
+      value: 50,
       label: "Disaster Relief Provided",
     },
   ];
@@ -110,10 +112,8 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSlider />
 
-      
-
       {/* GallerySlider */}
-      <div className="py-6 bg-slate-200">
+      <div className="py-6 bg-slate-100">
         <GallerySlider />
       </div>
 
@@ -148,12 +148,15 @@ export default function Home() {
                       <div
                         className="bg-orange-500 h-2 rounded-full"
                         style={{
-                          width: `₹{(campaign.raised / campaign.goal) * 100}%`,
+                          width: `${(campaign.raised / campaign.goal) * 100}%`,
                         }}
                       />
                     </div>
                   </div>
-                  <NavLink to={"/donate"} className="w-full inline-block text-center bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
+                  <NavLink
+                    to={"/donate"}
+                    className="w-full inline-block text-center bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition"
+                  >
                     Donate Now
                   </NavLink>
                 </div>
@@ -175,8 +178,9 @@ export default function Home() {
               >
                 <div className="flex justify-center mb-4">{stat.icon}</div>
                 <div className="text-4xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </div>
+                  {/* {stat.value} */}
+                  <CountUpNumber key={index} end={stat.value} suffix="+" />
+                  </div>
                 <p className="text-gray-600">{stat.label}</p>
               </div>
             ))}
@@ -184,6 +188,13 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="w-full overflow-hidden">
+        {/* Gujarati=-=-=-=-=-=-=-= */}
+        {/* <MarqueeText text="પર્યાવરણ સુરક્ષા  &nbsp; • &nbsp;  આરોગ્ય સેવાઓ  &nbsp; • &nbsp; સંસ્કૃતિ જાળવણી  &nbsp; • &nbsp; શિક્ષા પ્રસાર  &nbsp; • &nbsp; ભોજન અને પાણી  &nbsp; • &nbsp; જાગૃતિ અને જ્ઞાન &nbsp; • &nbsp; આશ્રય અને સંભાળ  &nbsp; • &nbsp; પશુ સેવા  &nbsp; • &nbsp; સહાયકાર્ય  &nbsp; • &nbsp; યુવાધન માટે માર્ગદર્શન " /> */}
+
+        {/* English=-=-=-=-=-=-=-= */}
+        <MarqueeText text="Environmental Protection   •   Healthcare Services   •   Cultural Preservation   •   Education Promotion   •   Food and Water   •   Awareness and Knowledge   •   Shelter and Care   •   Animal Welfare   •   Relief Work   •   Guidance for Youth" />
+      </div>
       {/* Call to Action */}
       <div className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">

@@ -36,7 +36,7 @@ const BlogPage = () => {
   const [selectedPost, setSelectedPost] = useState(null);
 
   return (
-    <div>
+    <div className="py-10">
       {selectedPost ? (
         <BlogDetail post={selectedPost} onBack={() => setSelectedPost(null)} />
       ) : (

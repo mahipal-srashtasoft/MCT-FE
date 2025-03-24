@@ -110,9 +110,9 @@ export default function Volunteer() {
       </div>
 
       {/* Application Form */}
-      <div className="py-16 bg-white">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Register as a Volunteer</h2>
+      <div className="py-16 bg-white bgImg">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8 text-orange-500">Register as a Volunteer</h2>
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

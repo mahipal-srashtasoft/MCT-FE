@@ -16,10 +16,13 @@ import Contact from "./pages/Contact";
 import DonationPage from "./pages/Donation";
 import GetInvolved from "./pages/GetInvolved";
 import Gallery from "./pages/Gallery";
+import CursorFollower from "./components/CursorFollower";
 
 function App() {
   return (
     <Router>
+      <CursorFollower />
+
       <div className="min-h-screen flex flex-col">
         <div className="fixed top-0 z-50 w-full">
           <Navbar />
