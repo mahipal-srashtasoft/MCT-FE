@@ -17,6 +17,8 @@ import DonationPage from "./pages/Donation";
 import GetInvolved from "./pages/GetInvolved";
 import Gallery from "./pages/Gallery";
 import CursorFollower from "./components/CursorFollower";
+import "animate.css";
+
 
 function App() {
   return (

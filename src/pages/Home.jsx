@@ -123,7 +123,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">
             Current Campaigns
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3  gap-8">
             {campaigns.map((campaign, index) => (
               <div
                 key={index}
@@ -198,7 +198,7 @@ export default function Home() {
       {/* Call to Action */}
       <div className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 npm install animate.css --save">
             Ready to Make a Difference?
           </h2>
           <p className="text-gray-600 mb-8">

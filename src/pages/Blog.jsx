@@ -9,7 +9,7 @@ const posts = [
     excerpt: "How our education initiative is transforming lives in remote villages",
     author: "Sarah Johnson",
     date: "March 15, 2024",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/Education.jpg",
     content: "Full blog content goes here...",
   },
   {
@@ -18,7 +18,7 @@ const posts = [
     excerpt: "The impact of our clean water projects in drought-affected regions",
     author: "Michael Chen",
     date: "March 12, 2024",
-    image: "https://images.unsplash.com/photo-1519508234439-4f23643125c1?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/Clean Water Initiative.jpg",
     content: "Full blog content goes here...",
   },
   {
@@ -27,7 +27,7 @@ const posts = [
     excerpt: "Meet the dedicated volunteers who are changing lives",
     author: "Emily Rodriguez",
     date: "March 10, 2024",
-    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/blue-crew-day-of-caring.jpg",
     content: "Full blog content goes here...",
   }
 ];

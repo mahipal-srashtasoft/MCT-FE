@@ -53,7 +53,7 @@ input , textarea , select, option , label, ::placeholder{
 /* =-=-=-=-=-==-=-Scrolbar start=-=-=-=-==-=-=-=- */
 /* WebKit Browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -77,3 +77,23 @@ body {
 
 
 /* =-=-=-=-=-==-=-Scrolbar end =-=-=-=-==-=-=-=- */
+
+
+
+/* Change pagination bullet color */
+.swiper-pagination-bullet {
+    background: white !important; /* Default color */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+  
+  /* Active bullet color */
+  .swiper-pagination-bullet-active {
+    background: orange !important; /* Change to your preferred color */
+    transform: scale(1.2); /* Slightly enlarge the active bullet */
+  }
+  
+  /* img{
+    box-shadow: 0px -16px 25px rgb(249 115 22 ) inset !important;
+
+  } */
