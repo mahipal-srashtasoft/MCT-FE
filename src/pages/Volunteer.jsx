@@ -100,9 +100,9 @@ export default function Volunteer() {
                   </div>
                 </div>
                 <p className="text-gray-600 mb-4">{opportunity.description}</p>
-                <button className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
+                {/* <button className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
                   Apply Now
-                </button>
+                </button> */}
               </div>
             ))}
           </div>

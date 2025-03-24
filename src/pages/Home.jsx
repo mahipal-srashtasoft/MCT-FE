@@ -134,23 +134,27 @@ export default function Home() {
                   alt={campaign.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {campaign.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{campaign.description}</p>
-                  <div className="mb-4">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span>Raised: ₹{campaign.raised.toLocaleString()}</span>
-                      <span>Goal: ₹{campaign.goal.toLocaleString()}</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-orange-500 h-2 rounded-full"
-                        style={{
-                          width: `${(campaign.raised / campaign.goal) * 100}%`,
-                        }}
-                      />
+                <div className="p-6 flex flex-col justify-between md:h-[60%]">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {campaign.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{campaign.description}</p>
+                    <div className="mb-4">
+                      <div className="flex justify-between text-sm mb-1">
+                        <span>Raised: ₹{campaign.raised.toLocaleString()}</span>
+                        <span>Goal: ₹{campaign.goal.toLocaleString()}</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className="bg-orange-500 h-2 rounded-full"
+                          style={{
+                            width: `${
+                              (campaign.raised / campaign.goal) * 100
+                            }%`,
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
                   <NavLink
@@ -168,8 +172,10 @@ export default function Home() {
 
       {/* Stats Section */}
       <div className="py-16 bg-white">
-        <img src="../assets/Images/Library.jpg" alt="" />
         <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Our Impact in Numbers
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div
@@ -180,7 +186,7 @@ export default function Home() {
                 <div className="text-4xl font-bold text-gray-900 mb-2">
                   {/* {stat.value} */}
                   <CountUpNumber key={index} end={stat.value} suffix="+" />
-                  </div>
+                </div>
                 <p className="text-gray-600">{stat.label}</p>
               </div>
             ))}

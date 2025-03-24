@@ -122,7 +122,7 @@ export default function Footer() {
 
           {/* Footer Bottom */}
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300 flex md:justify-between flex-col md:flex-row">
-            <p>© {new Date().getFullYear()} NGO Name. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} મોક્ષ ચેરિટેબલ ટ્રસ્ટ. All rights reserved.</p>
             <p>
               Design And Developed by <strong>Srashtasoft</strong>
             </p>
