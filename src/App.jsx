@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+  useLocation
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -17,34 +17,49 @@ import DonationPage from "./pages/Donation";
 import GetInvolved from "./pages/GetInvolved";
 import Gallery from "./pages/Gallery";
 import CursorFollower from "./components/CursorFollower";
-import "animate.css";
+import ErrorPage from "./pages/ErrorPage";
+import Loader from "./components/Loader";
 
+const AppContent = () => {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1000); // Simulates page load time
+    return () => clearTimeout(timer);
+  }, [location]);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {loading && <Loader />}
+      <div className="fixed top-0 z-50 w-full">
+        <Navbar />
+      </div>
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/donate" element={<DonationPage />} />
+          <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (
     <Router>
       <CursorFollower />
-
-      <div className="min-h-screen flex flex-col">
-        <div className="fixed top-0 z-50 w-full">
-          <Navbar />
-        </div>
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/programs" element={<Programs />} />
-            <Route path="/volunteer" element={<Volunteer />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/donate" element={<DonationPage />} />
-            <Route path="/get-involved" element={<GetInvolved />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }

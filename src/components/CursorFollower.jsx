@@ -18,7 +18,7 @@ export default function CursorFollower() {
       src="/Images/Logo.png" // Replace with the actual logo path
       alt="Cursor Logo"
       className="fixed top-1.5 left-5 w-11 h-11 pointer-events-none z-50"
-      animate={{ x: position.x - 20, y: position.y - 20 }} // Adjust to center the logo
+      animate={{ x: position.x - 40, y: position.y - 30 }} // Adjust to center the logo
       transition={{ type: "spring", stiffness: 100, damping: 10 }}
     />
   );

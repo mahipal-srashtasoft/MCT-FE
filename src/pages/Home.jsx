@@ -198,7 +198,7 @@ export default function Home() {
       {/* Call to Action */}
       <div className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 npm install animate.css --save">
+          <h2 className="text-3xl font-bold mb-4">
             Ready to Make a Difference?
           </h2>
           <p className="text-gray-600 mb-8">
