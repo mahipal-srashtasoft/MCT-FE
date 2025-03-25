@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GalleryData } from "./GalleryData";
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
+import Aos from "aos";
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [lightbox, setLightbox] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const [visibleImages, setVisibleImages] = useState(6); // Initially show 6 images
+
+    useEffect(() => {
+      Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    }, []);
 
   const categories = [
     "All",
@@ -42,10 +48,10 @@ export default function Gallery() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4" data-aos="zoom-out-down">
             Our Impact in Pictures
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto" data-aos="zoom-out-down">
             A glimpse of our efforts across Gujarat in various fields like
             education, healthcare, and empowerment.
           </p>
@@ -55,7 +61,7 @@ export default function Gallery() {
       {/* Category Filters */}
       <div className="my-8 px-4">
         {/* Mobile Dropdown */}
-        <div className="md:hidden">
+        <div className="md:hidden" data-aos="zoom-out-down">
           <select
             className="w-full p-3 border rounded-lg text-gray-700"
             value={selectedCategory}
@@ -73,7 +79,7 @@ export default function Gallery() {
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex flex-wrap justify-center gap-4">
+        <div className="hidden md:flex flex-wrap justify-center gap-4" data-aos="zoom-in">
           {categories.map((category) => (
             <button
               key={category}
@@ -94,13 +100,14 @@ export default function Gallery() {
       </div>
 
       {/* Gallery Grid */}
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" >
         {filteredImages.slice(0, visibleImages).map((image, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.02 }}
             className="overflow-hidden rounded-lg shadow-lg cursor-pointer relative hoverDiv"
-            onClick={() => setLightbox(image.url)}
+            onClick={() => setLightboxIndex(index)}
+            data-aos="fade-up"
           >
             <img
               src={image.url}
@@ -116,7 +123,7 @@ export default function Gallery() {
 
       {/* "See More" Button */}
       {visibleImages < filteredImages.length && (
-        <div className="text-center mt-8">
+        <div className="text-center mt-8" data-aos="zoom-in">
           <button
             className="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition"
             onClick={handleSeeMore}
@@ -127,16 +134,52 @@ export default function Gallery() {
       )}
 
       {/* Lightbox */}
-      {lightbox && (
+      {lightboxIndex !== null && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-          onClick={() => setLightbox(null)}
+          onClick={() => setLightboxIndex(null)}
         >
+          {/* Left Arrow */}
+          <button
+            className="absolute left-10 text-white text-3xl bg-orange-800/60 p-3 rounded-full hover:bg-orange-700 transition-all duration-300"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prevIndex) =>
+                prevIndex === 0 ? filteredImages.length - 1 : prevIndex - 1
+              );
+            }}
+          >
+            <FaChevronCircleLeft />
+          </button>
+
+          {/* Lightbox Image */}
           <img
-            src={lightbox}
-            alt="Preview"
-            className="max-w-4xl max-h-[90vh] rounded-lg"
+            src={filteredImages[lightboxIndex].url}
+            alt={filteredImages[lightboxIndex].name}
+            className="gallaryAllImg"
+            onClick={(e) => e.stopPropagation()}
           />
+
+          {/* Right Arrow */}
+          <button
+            className="absolute right-10 text-white text-3xl bg-orange-800/60 p-3 rounded-full hover:bg-orange-700 transition-all duration-300"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prevIndex) =>
+                prevIndex === filteredImages.length - 1 ? 0 : prevIndex + 1
+              );
+            }}
+          >
+            <FaChevronCircleRight />
+          </button>
+
+          {/* Close Lightbox */}
+          <div
+            className="absolute top-5 right-5 text-white text-3xl cursor-pointer"
+            onClick={() => setLightboxIndex(null)}
+          >
+            &times;
+          </div>
         </div>
       )}
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Book,
   Heart,
@@ -9,8 +9,12 @@ import {
   Briefcase,
 } from "lucide-react";
 import CountUpNumber from "../components/CountUpNumber";
+import Aos from "aos";
 
 export default function Programs() {
+    useEffect(() => {
+      Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    }, []);
   const programs = [
     {
       icon: <Book className="w-12 h-12 text-orange-500" />,
@@ -66,7 +70,7 @@ export default function Programs() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000"
@@ -76,7 +80,7 @@ export default function Programs() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 text-center px-4" data-aos="zoom-out-down">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Our Initiatives in Gujarat
           </h1>
@@ -92,7 +96,7 @@ export default function Programs() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg">
+              <div key={index} className="bg-white p-8 rounded-xl shadow-lg" data-aos="zoom-in-up">
                 <div className="mb-4">{program.icon}</div>
                 <h3 className="text-2xl font-semibold mb-2">{program.title}</h3>
                 <p className="text-gray-600 mb-4">{program.description}</p>
@@ -108,28 +112,28 @@ export default function Programs() {
       {/* Impact Section */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Our Impact in Gujarat</h2>
+          <h2 className="text-3xl font-bold mb-8"  data-aos="zoom-out">Our Impact in Gujarat</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+            <div data-aos="zoom-out">
               <div className="text-4xl font-bold text-orange-500 mb-2">
                 {" "}
                 <CountUpNumber end={"100000"} suffix="+" />
               </div>
               <p className="text-gray-600">Donors</p>
             </div>
-            <div>
+            <div  data-aos="zoom-out">
               <div className="text-4xl font-bold text-orange-500 mb-2">
                 <CountUpNumber end={"250000"} suffix="+" />
               </div>
               <p className="text-gray-600">Volunteers</p>
             </div>
-            <div>
+            <div  data-aos="zoom-out">
               <div className="text-4xl font-bold text-orange-500 mb-2">
                 <CountUpNumber end={"30"} suffix="+" />
               </div>
               <p className="text-gray-600">Ongoing Programs</p>
             </div>
-            <div>
+            <div  data-aos="zoom-out">
               <div className="text-4xl font-bold text-orange-500 mb-2">
                 <CountUpNumber end={"10"} suffix="+" />{" "}
               </div>

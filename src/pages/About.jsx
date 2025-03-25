@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Users, Award, Target } from "lucide-react";
 import TeamSection from "../components/TeamSection";
+import Aos from "aos";
 
 export default function About() {
   const team = [
@@ -23,11 +24,14 @@ export default function About() {
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=300",
     },
   ];
+  useEffect(() => {
+    Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80&w=2000"
@@ -37,7 +41,7 @@ export default function About() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 text-center px-4" data-aos="zoom-out-down">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             About Us
           </h1>
@@ -52,7 +56,7 @@ export default function About() {
       <div className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
+            <div className="text-center p-6" data-aos="zoom-out-down" >
               <Users className="w-12 h-12 text-orange-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
               <p className="text-gray-600">
@@ -60,7 +64,7 @@ export default function About() {
                 education
               </p>
             </div>
-            <div className="text-center p-6">
+            <div className="text-center p-6" data-aos="zoom-out-down">
               <Target className="w-12 h-12 text-orange-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Our Vision</h3>
               <p className="text-gray-600">
@@ -68,7 +72,7 @@ export default function About() {
                 growth
               </p>
             </div>
-            <div className="text-center p-6">
+            <div className="text-center p-6" data-aos="zoom-out-down">
               <Award className="w-12 h-12 text-orange-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Our Values</h3>
               <p className="text-gray-600">

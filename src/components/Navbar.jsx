@@ -23,11 +23,11 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-8">
             {[
               { name: "Home", path: "/" },
-              { name: "About", path: "/about" },
               { name: "Gallery", path: "/gallery" },
               { name: "Programs", path: "/programs" },
               { name: "Volunteer", path: "/volunteer" },
               { name: "Blog", path: "/blog" },
+              { name: "About", path: "/about" },
               { name: "Contact", path: "/contact" },
             ].map((link) => (
               <NavLink
@@ -75,11 +75,11 @@ export default function Navbar() {
           <ul className="flex flex-col items-center py-4 space-y-4">
             {[
               { name: "Home", path: "/" },
-              { name: "About", path: "/about" },
               { name: "Gallery", path: "/gallery" },
               { name: "Programs", path: "/programs" },
               { name: "Volunteer", path: "/volunteer" },
               { name: "Blog", path: "/blog" },
+              { name: "About", path: "/about" },
               { name: "Contact", path: "/contact" },
             ].map((link) => (
               <li key={link.path}>

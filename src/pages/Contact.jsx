@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import Aos from 'aos';
 
 export default function Contact() {
+  useEffect(() => {
+    Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=2000" 
@@ -15,7 +19,7 @@ export default function Contact() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 text-center px-4" data-aos="zoom-out-up">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Contact Us</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
             Get in touch with us for any questions or support
@@ -29,9 +33,9 @@ export default function Contact() {
             {/* Contact Information */}
             <div>
               
-              <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
+              <h2 className="text-3xl font-bold mb-8" data-aos="flip-up">Get in Touch</h2>
               <div className="space-y-6">
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="flip-up">
                   <MapPin className="w-6 h-6 text-orange-500 mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Our Location</h3>
@@ -43,7 +47,7 @@ export default function Contact() {
                   </div>
                 </div>
                 
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="flip-up">
                   <Phone className="w-6 h-6 text-orange-500 mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
@@ -51,7 +55,7 @@ export default function Contact() {
                   </div>
                 </div>
                 
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="flip-up">
                   <Mail className="w-6 h-6 text-orange-500 mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
@@ -59,7 +63,7 @@ export default function Contact() {
                   </div>
                 </div>
                 
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="flip-up">
                   <Clock className="w-6 h-6 text-orange-500 mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Working Hours</h3>
@@ -75,9 +79,9 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold mb-8" data-aos="flip-up">Send Us a Message</h2>
               <form className="space-y-6">
-                <div>
+                <div data-aos="flip-up">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Your Name
                   </label>
@@ -87,7 +91,7 @@ export default function Contact() {
                   />
                 </div>
                 
-                <div>
+                <div data-aos="flip-up">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Email
                   </label>
@@ -97,7 +101,7 @@ export default function Contact() {
                   />
                 </div>
                 
-                <div>
+                <div data-aos="flip-up">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Subject
                   </label>
@@ -107,7 +111,7 @@ export default function Contact() {
                   />
                 </div>
                 
-                <div>
+                <div data-aos="flip-up">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Message
                   </label>
@@ -118,6 +122,7 @@ export default function Contact() {
                 </div>
                 
                 <button
+                data-aos="flip-up"
                   type="submit"
                   className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition"
                 >

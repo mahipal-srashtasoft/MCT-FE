@@ -1,8 +1,13 @@
 import { QRCodeCanvas } from 'qrcode.react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import Aos from 'aos';
 
 function DonationForm() {
+    useEffect(() => {
+      Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    }, []);
+  
   const [amount, setAmount] = useState("");
   const [selectedMethod, setSelectedMethod] = useState("test");
   const [showQR, setShowQR] = useState(false);
@@ -18,19 +23,19 @@ function DonationForm() {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto my-12 bg-white shadow-lg rounded-lg p-6 md:p-8">
-        <h2 className="text-3xl font-bold text-gray-800">Your Donation</h2>
-        <p className="text-gray-600 mt-2">
+      <div className="max-w-4xl mx-auto my-12 bg-white shadow-lg rounded-lg p-6 md:p-8" data-aos="fade-in">
+        <h2 className="text-3xl font-bold text-gray-800" data-aos="fade-up">Your Donation</h2>
+        <p className="text-gray-600 mt-2" data-aos="fade-up">
           Your donation is more than just financial support; it is a powerful act of kindness that drives meaningful change.
         </p>
         
-        <div className="bg-orange-100 p-3 mt-4 flex items-start text-orange-600 rounded">
+        <div className="bg-orange-100 p-3 mt-4 flex items-start text-orange-600 rounded" data-aos="fade-up">
             <span>⚠️ </span>
           <span className="font-bold mr-2"> Notice:</span> 
           <span>Test mode is enabled. While in test mode, no live donations are processed.</span>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4" data-aos="flip-up">
           <input
             type="number"
             value={amount}
@@ -38,7 +43,7 @@ function DonationForm() {
             className="w-full border rounded p-2"
             placeholder="$100.00"
           />
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-2 mt-2" data-aos="flip-up">
             {presetAmounts.map((val) => (
               <button
                 key={val}
@@ -53,9 +58,9 @@ function DonationForm() {
         </div>
 
         <div className="mt-6">
-          <h3 className="font-semibold">Select Payment Method</h3>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-4">
-            <label className="flex items-center space-x-2">
+          <h3 className="font-semibold" data-aos="fade-up">Select Payment Method</h3>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-4" >
+            <label className="flex items-center space-x-2" data-aos="fade-up">
               <input
                 type="radio"
                 checked={selectedMethod === "test"}
@@ -63,7 +68,7 @@ function DonationForm() {
               />
               <span>Test Donation</span>
             </label>
-            <label className="flex items-center space-x-2">
+            <label className="flex items-center space-x-2" data-aos="fade-up">
               <input
                 type="radio"
                 checked={selectedMethod === "offline"}
@@ -75,16 +80,16 @@ function DonationForm() {
         </div>
 
         <div className="mt-6">
-          <h3 className="font-semibold">Personal Info</h3>
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <h3 className="font-semibold" data-aos="flip-up">Personal Info</h3>
+          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4" data-aos="flip-up">
             <input type="text" placeholder="First Name" className="border rounded p-2 w-full" />
             <input type="text" placeholder="Last Name" className="border rounded p-2 w-full" />
           </div>
-          <input type="email" placeholder="Email Address" className="border rounded p-2 w-full mt-2" />
+          <input type="email" placeholder="Email Address" className="border rounded p-2 w-full mt-2"  data-aos="flip-up"/>
         </div>
 
         {selectedMethod === "offline" && (
-          <div className="mt-6 bg-gray-100 p-4 rounded">
+          <div className="mt-6 bg-gray-100 p-4 rounded" data-aos="fade-up">
             <h3 className="font-semibold">Offline Donation Instructions</h3>
             <p className="mt-2">To make an offline donation toward this cause, follow these steps:</p>
             <ul className="list-decimal ml-6 mt-2">
@@ -97,14 +102,14 @@ function DonationForm() {
           </div>
         )}
 
-        <div className="mt-6 bg-orange-500 text-white p-3 rounded flex justify-between items-center">
+        <div className="mt-6 border border-orange-500 text-orange-500 p-3 rounded flex justify-between items-center" data-aos="fade-up">
           <span className="font-semibold">Donation Total:</span>
           <span>${amount}.00</span>
         </div>
 
-        <div className="text-center mt-4">
+        <div className="text-center mt-4 w-full" data-aos="fade-up">
           <button
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition w-full sm:w-auto"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded text-lg font-semibold transition w-full duration-300 "
             onClick={() => amount > 0 && setShowQR(true)}
           >
             Donate {amount ? "₹" + Number(amount).toLocaleString("en-IN") : "Now"}
@@ -121,9 +126,9 @@ function DonationForm() {
             >
               <X className="w-6 h-6" />
             </button>
-            <h2 className="text-xl font-bold mb-4">Scan to Pay ₹{amount ? Number(amount).toLocaleString("en-IN") : amount}</h2>
-            <QRCodeCanvas value={generateUpiUrl()} size={200} />
-            <p className="text-sm text-gray-600 mt-2">Scan this QR code using any UPI app.</p>
+            <h2 className="text-xl font-bold mb-4" data-aos="zoom-in">Scan to Pay ₹{amount ? Number(amount).toLocaleString("en-IN") : amount}</h2>
+            <QRCodeCanvas value={generateUpiUrl()} size={200} data-aos="zoom-in"/>
+            <p className="text-sm text-gray-600 mt-2" data-aos="zoom-in">Scan this QR code using any UPI app.</p>
           </div>
         </div>
       )}

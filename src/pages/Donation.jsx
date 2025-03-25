@@ -1,56 +1,71 @@
+// With UPI Id =-=-=-=-=-=-=-=-=-=--=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-    // With UPI Id =-=-=-=-=-=-=-=-=-=--=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Heart, CheckCircle, X } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
 import DonationPopup from "../components/DonationPopup";
 import DonationForm from "../components/DonationForm";
-
+import Aos from "aos";
 
 export default function DonationPage() {
-
+  useEffect(() => {
+    Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
       <div className="bg-orange-500 text-white pt-20 pb-10 text-center md:pt-24">
-        <Heart className="w-12 h-12 mx-auto mb-4" />
-        <h1 className="text-4xl font-bold">Make a Difference Today</h1>
-        <p className="text-lg mt-2">Your donation helps change lives and spread hope.</p>
+        <div data-aos="zoom-out-up">
+          <Heart className="w-12 h-12 mx-auto mb-4" />
+          <h1 className="text-4xl font-bold">Make a Difference Today</h1>
+          <p className="text-lg mt-2">
+            Your donation helps change lives and spread hope.
+          </p>
+        </div>
       </div>
 
       <DonationForm />
 
       {/* Why Donate? Section */}
       <div className="bg-gray-200 py-16 text-center">
-        <h2 className="text-3xl font-bold text-gray-800">Why Your Donation Matters?</h2>
-        <div className="flex flex-wrap justify-center gap-8 mt-8 max-w-4xl mx-auto">
-          <div className="bg-white shadow-md p-6 rounded-lg w-64">
+        <h2 className="text-3xl font-bold text-gray-800" data-aos="fade-up">
+          Why Your Donation Matters?
+        </h2>
+        <div className="flex flex-wrap justify-center md:justify-between gap-8 mt-8 max-w-5xl mx-auto">
+          <div className="bg-white shadow-md p-6 rounded-lg w-72" data-aos="fade-up">
             <CheckCircle className="w-10 h-10 text-green-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold">Provide Education</h3>
-            <p className="text-gray-600 text-sm mt-2">Your support helps provide education for underprivileged children.</p>
+            <p className="text-gray-600 text-sm mt-2">
+              Your support helps provide education for underprivileged children.
+            </p>
           </div>
-          <div className="bg-white shadow-md p-6 rounded-lg w-64">
+          <div className="bg-white shadow-md p-6 rounded-lg w-72" data-aos="fade-up">
             <CheckCircle className="w-10 h-10 text-green-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold">Feed the Hungry</h3>
-            <p className="text-gray-600 text-sm mt-2">Every ₹1 can provide a meal for someone in need.</p>
+            <p className="text-gray-600 text-sm mt-2">
+              Every ₹1 can provide a meal for someone in need.
+            </p>
           </div>
-          <div className="bg-white shadow-md p-6 rounded-lg w-64">
+          <div className="bg-white shadow-md p-6 rounded-lg w-72" data-aos="fade-up">
             <CheckCircle className="w-10 h-10 text-green-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold">Medical Aid</h3>
-            <p className="text-gray-600 text-sm mt-2">Support urgent medical treatments and healthcare initiatives.</p>
+            <p className="text-gray-600 text-sm mt-2">
+              Support urgent medical treatments and healthcare initiatives.
+            </p>
           </div>
         </div>
       </div>
 
       {/* Footer Call to Action */}
       <div className="text-center py-12">
-        <h2 className="text-2xl font-bold text-gray-800">Join Us in Making an Impact</h2>
-        <p className="text-gray-600 mt-2">Every contribution brings hope and change. Donate today!</p>
-        <button
-          className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition"
-        >
+        <h2 className="text-2xl font-bold text-gray-800" data-aos="fade-up">
+          Join Us in Making an Impact
+        </h2>
+        <p className="text-gray-600 mt-2" data-aos="fade-up">
+          Every contribution brings hope and change. Donate today!
+        </p>
+        <button data-aos="fade-up" className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition">
           Donate Now
         </button>
       </div>
@@ -58,12 +73,7 @@ export default function DonationPage() {
   );
 }
 
-
-
-
-    // With Bank Details =-=-=-=-=-=-=-=-=-=--=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-
+// With Bank Details =-=-=-=-=-=-=-=-=-=--=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 //     import React, { useState } from "react";
 // import { Heart, CheckCircle, X } from "lucide-react";

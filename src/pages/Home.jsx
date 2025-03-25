@@ -138,7 +138,7 @@ export default function Home() {
             {campaigns.map((campaign, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg"
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
                 data-aos="zoom-in"
               >
                 <img
