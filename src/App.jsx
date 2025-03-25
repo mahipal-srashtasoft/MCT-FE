@@ -19,6 +19,10 @@ import Gallery from "./pages/Gallery";
 import CursorFollower from "./components/CursorFollower";
 import ErrorPage from "./pages/ErrorPage";
 import Loader from "./components/Loader";
+import 'animate.css';
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
+
 
 const AppContent = () => {
   const location = useLocation();
@@ -29,6 +33,10 @@ const AppContent = () => {
     const timer = setTimeout(() => setLoading(false), 1000); // Simulates page load time
     return () => clearTimeout(timer);
   }, [location]);
+
+  useEffect(() => {
+      AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    }, []);
 
   return (
     <div className="min-h-screen flex flex-col">

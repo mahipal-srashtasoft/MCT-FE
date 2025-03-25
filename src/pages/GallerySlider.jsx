@@ -5,17 +5,20 @@ import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 import { GalleryData } from "./GalleryData";
+import Aos from "aos";
+import { useEffect } from "react";
 
 
 const GallerySlider = () => {
   const navigate = useNavigate();
   const sliderData = GalleryData.slice(0, 10); // First 10 items only
 
-  console.log(sliderData)
-
+  useEffect(() => {
+      Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    }, []);
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-4 md:mt-5 ">Our Activities</h2>
+    <div className="max-w-6xl mx-auto px-4 ">
+      <h2 className="text-3xl font-bold text-center mb-4 md:mt-5" data-aos="zoom-in">Our Activities</h2>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={20}
@@ -29,8 +32,8 @@ const GallerySlider = () => {
         className="w-full py-5"
       >
         {sliderData.map((item, index) => (
-          <SwiperSlide key={index} className="flex justify-center">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden w-full sm:w-80">
+          <SwiperSlide key={index} className="flex justify-center" >
+            <div className="bg-white rounded-lg shadow-md overflow-hidden w-full sm:w-80 " data-aos="flip-right">
               <img src={item.url} alt={item.name} className="w-full h-48 object-cover" />
               <div className="p-4 flex flex-col items-center">
                 {item.icon}
@@ -45,6 +48,7 @@ const GallerySlider = () => {
         <button
           onClick={() => navigate("/gallery")}
           className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition"
+          data-aos="slide-up"
         >
           Show More Activities
         </button>

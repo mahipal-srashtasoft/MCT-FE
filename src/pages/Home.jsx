@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import {
   ArrowRight,
@@ -17,9 +19,7 @@ import CleanWaterInitiative from "/public/Images/Clean Water Initiative.jpg";
 import HealthcareAccess from "/public/Images/healthcare-3.jpg";
 import Education from "/public/Images/Education.jpg";
 import { NavLink } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react"; // Correct import
-
-// Import Swiper styles
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -30,6 +30,10 @@ import MarqueeText from "../components/MarqueeText";
 import CountUpNumber from "../components/CountUpNumber";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+  }, []);
+
   const campaigns = [
     {
       title: "Education for All",
@@ -54,6 +58,7 @@ export default function Home() {
       image: HealthcareAccess,
     },
   ];
+
   const stats = [
     {
       icon: <Users className="w-8 h-8 text-orange-500" />,
@@ -120,21 +125,28 @@ export default function Home() {
       {/* Current Campaigns */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2
+            className="text-3xl font-bold text-center mb-12"
+            data-aos="fade-up"
+          >
             Current Campaigns
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3  gap-8">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            data-aos="fade-up"
+          >
             {campaigns.map((campaign, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-lg"
+                className="bg-white rounded-xl shadow-lg"
+                data-aos="zoom-in"
               >
                 <img
                   src={campaign.image}
                   alt={campaign.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="p-6 flex flex-col justify-between md:h-[60%]">
+                <div className="p-6 flex flex-col justify-between ">
                   <div>
                     <h3 className="text-xl font-semibold mb-2">
                       {campaign.title}
@@ -173,18 +185,24 @@ export default function Home() {
       {/* Stats Section */}
       <div className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2
+            className="text-3xl font-bold text-center mb-12"
+            data-aos="fade-up"
+          >
             Our Impact in Numbers
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8">
+          <div
+            className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8"
+            data-aos="fade-up"
+          >
             {stats.map((stat, index) => (
               <div
                 key={index}
                 className="text-center p-6 shadow-orange-500 shadow-sm rounded-lg"
+                data-aos="zoom-in"
               >
                 <div className="flex justify-center mb-4">{stat.icon}</div>
                 <div className="text-4xl font-bold text-gray-900 mb-2">
-                  {/* {stat.value} */}
                   <CountUpNumber key={index} end={stat.value} suffix="+" />
                 </div>
                 <p className="text-gray-600">{stat.label}</p>
@@ -195,14 +213,11 @@ export default function Home() {
       </div>
 
       <div className="w-full overflow-hidden">
-        {/* Gujarati=-=-=-=-=-=-=-= */}
-        {/* <MarqueeText text="પર્યાવરણ સુરક્ષા  &nbsp; • &nbsp;  આરોગ્ય સેવાઓ  &nbsp; • &nbsp; સંસ્કૃતિ જાળવણી  &nbsp; • &nbsp; શિક્ષા પ્રસાર  &nbsp; • &nbsp; ભોજન અને પાણી  &nbsp; • &nbsp; જાગૃતિ અને જ્ઞાન &nbsp; • &nbsp; આશ્રય અને સંભાળ  &nbsp; • &nbsp; પશુ સેવા  &nbsp; • &nbsp; સહાયકાર્ય  &nbsp; • &nbsp; યુવાધન માટે માર્ગદર્શન " /> */}
-
-        {/* English=-=-=-=-=-=-=-= */}
         <MarqueeText text="Environmental Protection   •   Healthcare Services   •   Cultural Preservation   •   Education Promotion   •   Food and Water   •   Awareness and Knowledge   •   Shelter and Care   •   Animal Welfare   •   Relief Work   •   Guidance for Youth" />
       </div>
+
       {/* Call to Action */}
-      <div className="py-16 bg-white">
+      <div className="py-16 bg-white" data-aos="fade-up">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Make a Difference?
