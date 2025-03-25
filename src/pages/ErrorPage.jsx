@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const ErrorPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
-      <div className="max-w-md w-full p-6">
+      <div className="max-w-2xl w-full p-6">
         <div className="mb-4">
           <img
             src="https://demo.awaikenthemes.com/lenity/wp-content/themes/lenity/assets/images/404-error-img.png"
