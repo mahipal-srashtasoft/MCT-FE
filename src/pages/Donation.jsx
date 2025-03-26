@@ -65,7 +65,7 @@ export default function DonationPage() {
         <p className="text-gray-600 mt-2" data-aos="fade-up">
           Every contribution brings hope and change. Donate today!
         </p>
-        <button data-aos="fade-up" className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition">
+        <button data-aos="fade-up" className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition">
           Donate Now
         </button>
       </div>

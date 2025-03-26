@@ -17,7 +17,9 @@ const GallerySlider = () => {
       Aos.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
     }, []);
   return (
-    <div className="max-w-6xl mx-auto px-4 ">
+    <div className="max-w-6xl mx-auto px-4">
+      
+
       <h2 className="text-3xl font-bold text-center mb-4 md:mt-5" data-aos="zoom-in">Our Activities</h2>
       <Swiper
         modules={[Autoplay]}

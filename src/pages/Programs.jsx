@@ -96,7 +96,9 @@ export default function Programs() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg" data-aos="zoom-in-up">
+              <div key={index} className="bg-white p-8 rounded-xl shadow-lg relative overflow-hidden" data-aos="zoom-in-up">
+                {/* <div className="absolute bottom-0 right-0 bg-gradient-to-b bg-orange-100 -z-50 rounded-tl-full rounded-bl-full w-1/5 h-1/2 opacity-50" ></div>
+                <div className="absolute top-0 left-0 bg-gradient-to-b bg-orange-100 -z-50 rounded-tr-full rounded-br-full w-1/5 h-1/2 opacity-50" ></div> */}
                 <div className="mb-4">{program.icon}</div>
                 <h3 className="text-2xl font-semibold mb-2">{program.title}</h3>
                 <p className="text-gray-600 mb-4">{program.description}</p>
