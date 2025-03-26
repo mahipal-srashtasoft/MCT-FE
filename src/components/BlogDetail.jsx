@@ -25,7 +25,7 @@ const BlogDetail = ({ post, onBack }) => {
       <img src={post.image} alt={post.title} className="w-full rounded-lg mb-6" data-aos="fade-up" />
 
       <p className="text-gray-700 leading-relaxed" data-aos="fade-up">
-        {post.content || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla auctor lacus, nec aliquet eros pharetra sed..."}
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </p>
     </div>
   );

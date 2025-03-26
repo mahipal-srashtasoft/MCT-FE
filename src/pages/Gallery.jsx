@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GalleryData } from "./GalleryData";
-import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
+import { FaChevronCircleLeft, FaChevronCircleRight, FaTimes } from "react-icons/fa";
 import Aos from "aos";
 
 export default function Gallery() {
@@ -175,10 +175,10 @@ export default function Gallery() {
 
           {/* Close Lightbox */}
           <div
-            className="absolute top-5 right-5 text-white text-3xl cursor-pointer"
+            className="absolute top-5 right-5 text-white bg-orange-500/60 h-10 w-10 flex items-center justify-center rounded-full text-2xl font-semibold cursor-pointer"
             onClick={() => setLightboxIndex(null)}
           >
-            &times;
+            <FaTimes />
           </div>
         </div>
       )}
