@@ -41,7 +41,7 @@ export default function Footer() {
         }}
       >
         {/* Overlay for dark effect */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r to-orange-300 via-black from-orange-300 opacity-50"></div>
 
         <div className="relative max-w-6xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

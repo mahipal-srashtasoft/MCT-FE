@@ -144,8 +144,8 @@ function DonationForm() {
               {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
             </div>
           </div>
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4" data-aos="flip-up">
-            <div>
+          <div className="mt-2 grid grid-cols-1 sm:grid-cols-3 gap-4" data-aos="flip-up">
+            <div className='sm:col-span-2'>
               <input
                 type="email"
                 placeholder="Email Address"

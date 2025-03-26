@@ -35,7 +35,7 @@ export default function Navbar() {
                 to={link.path}
                 className={({ isActive }) =>
                   `text-gray-700 hover:text-orange-500 transition ${
-                    isActive ? "text-orange-500 font-bold" : ""
+                    isActive ? "text-orange-500 font-bold activeClass" : ""
                   }`
                 }
               >
@@ -48,7 +48,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <NavLink
               to="/donate"
-              className="bg-orange-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition"
+              className="bg-orange-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition "
             >
               Donate Now
             </NavLink>

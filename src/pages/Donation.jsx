@@ -15,8 +15,8 @@ export default function DonationPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
-      <div className="bg-orange-500 text-white pt-20 pb-10 text-center md:pt-24">
-        <div data-aos="zoom-out-up">
+      <div className="text-white bg-gradient-to-b to-orange-500 from-transparent w-full pt-20 pb-10 text-center md:pt-24">
+      <div data-aos="zoom-out-up">
           <Heart className="w-12 h-12 mx-auto mb-4" />
           <h1 className="text-4xl font-bold">Make a Difference Today</h1>
           <p className="text-lg mt-2">
